@@ -1,0 +1,37 @@
+<Page x:Class="Sumos.Views.SchedulePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:Sumos.Models"
+      Title="Спарринги">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="4">
+        <ItemsControl x:Name="ToursItemsControl" Loaded="ToursItemsControl_Loaded">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:ScheduleTourBlock}">
+                    <Border Width="280" Margin="8" Padding="8"
+                            BorderBrush="{StaticResource BorderBrush}"
+                            BorderThickness="1"
+                            Background="{StaticResource CardBrush}">
+                        <StackPanel>
+                            <TextBlock Text="{Binding TourNumber, StringFormat=Тур {0}}"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,6" />
+                            <ItemsControl ItemsSource="{Binding Pairings}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" Margin="0,1" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,25 @@
+<Page x:Class="Sumos.Views.RatingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Рейтинг">
+    <Grid Margin="4">
+        <DataGrid x:Name="RatingGrid"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  LoadingRow="RatingGrid_LoadingRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Место" Binding="{Binding Position}" Width="*" />
+                <DataGridTextColumn Header="Команда" Binding="{Binding TeamName}" Width="2*" />
+                <DataGridTextColumn Header="Матчи" Binding="{Binding Matches}" Width="*" />
+                <DataGridTextColumn Header="В" Binding="{Binding Wins}" Width="*" />
+                <DataGridTextColumn Header="Н" Binding="{Binding Draws}" Width="*" />
+                <DataGridTextColumn Header="П" Binding="{Binding Losses}" Width="*" />
+                <DataGridTextColumn Header="Очки" Binding="{Binding Points}" Width="*" />
+                <DataGridTextColumn Header="+/- раундов" Binding="{Binding RoundDifference}" Width="*" />
+                <DataGridTextColumn Header="Масса (г)" Binding="{Binding RobotWeight}" Width="*" />
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
+
